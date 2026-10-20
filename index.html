@@ -1,0 +1,431 @@
+
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Future | Sun’iy intellekt</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Inter',sans-serif;
+  background:#071225;color:#f4f7ff;
+  line-height:1.6;transition:.3s;
+}
+a{text-decoration:none;color:inherit}
+button,input{font:inherit}
+button{cursor:pointer}
+header{
+  height:72px;display:flex;align-items:center;justify-content:space-between;
+  padding:0 7%;border-bottom:1px solid #203354;
+  background:#081429;position:sticky;top:0;z-index:10;
+}
+.logo{font-size:23px;font-weight:800;display:flex;gap:10px;align-items:center}
+.logo span{color:#6682ff;font-size:30px}
+nav{display:flex;gap:30px}
+nav a{font-size:14px;color:#c5d0e7;transition:.3s}
+nav a:hover{color:#52c7ff}
+.header-btns{display:flex;gap:12px}
+.tugma{
+  border:0;border-radius:12px;padding:11px 20px;
+  background:linear-gradient(120deg,#3464ff,#6950ef);
+  color:white;font-weight:600;transition:.25s;
+}
+.tugma:hover{transform:translateY(-3px);box-shadow:0 8px 25px #365bff55}
+.tun-btn{background:#142341;border:1px solid #304366;color:white;border-radius:12px;padding:10px 14px}
+.bosh{
+  padding:65px 7% 55px;display:grid;
+  grid-template-columns:1.05fr .95fr;align-items:center;gap:30px;
+  background:radial-gradient(ellipse at 80% 40%,#142b66 0%,#071225 58%);
+  border-bottom:1px solid #1d3153;
+}
+.yorliq{display:inline-block;padding:7px 14px;border:1px solid #345be1;border-radius:30px;color:#69caff;font-size:13px;margin-bottom:18px}
+h1{font-size:clamp(34px,4.2vw,58px);line-height:1.13;letter-spacing:-1.8px;margin-bottom:20px}
+.rangli{background:linear-gradient(90deg,#36c4ff,#8c53ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.bosh p{color:#bdcbe2;font-size:15px;max-width:560px;margin-bottom:25px}
+.hero-rasm{position:relative;display:flex;align-items:center;justify-content:center;min-height:290px}
+.robot{
+  width:270px;height:270px;border-radius:50%;
+  display:grid;place-items:center;font-size:125px;
+  background:radial-gradient(circle,#263f9c 0%,#101e4a 48%,transparent 72%);
+  filter:drop-shadow(0 0 35px #3e69ff55);
+  animation:suzish 4s ease-in-out infinite;
+}
+@keyframes suzish{0%,100%{transform:translateY(0)}50%{transform:translateY(-13px)}}
+.aylana{position:absolute;border:1px solid #4569ff77;border-radius:50%;width:300px;height:300px;animation:aylan 18s linear infinite}
+.aylana:before,.aylana:after{content:"";position:absolute;width:13px;height:13px;border-radius:50%;background:#43caff;box-shadow:0 0 15px #43caff}
+.aylana:before{top:28px;left:35px}.aylana:after{bottom:35px;right:15px}
+@keyframes aylan{to{transform:rotate(360deg)}}
+.bolim{padding:35px 7%}
+.bolim-sarlavha{font-size:25px;letter-spacing:-.6px;margin-bottom:22px}
+.imkoniyatlar{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.karta{
+  border:1px solid #263c62;border-radius:16px;padding:22px;
+  background:linear-gradient(145deg,#102342,#0b172b);
+  transition:.25s;
+}
+.karta:hover{transform:translateY(-5px);border-color:#627dff;box-shadow:0 12px 28px #0002}
+.karta-ikon{width:48px;height:48px;border-radius:14px;display:grid;place-items:center;font-size:24px;margin-bottom:15px;background:#153c77}
+.karta h3{font-size:16px;margin-bottom:8px}
+.karta p{font-size:13px;color:#b8c6df}
+.binafsha{background:#39206c}.yashil{background:#075747}.sariq{background:#623a17}
+.demo{display:grid;grid-template-columns:.8fr 1.2fr;gap:35px;align-items:center}
+.demo-matn p{color:#b8c6df;font-size:14px;margin-bottom:18px}
+.demo-matn ul{list-style:none;display:grid;gap:8px;color:#d6e2f7;font-size:14px}
+.demo-matn li:before{content:"✓";color:#35e0a0;font-weight:bold;margin-right:10px}
+.chat{
+  border:1px solid #294d82;border-radius:17px;overflow:hidden;
+  background:#0b1930;box-shadow:0 15px 35px #0002;
+}
+.chat-tepa{display:flex;align-items:center;gap:12px;padding:15px;border-bottom:1px solid #233657}
+.bot-belgi{width:40px;height:40px;border-radius:12px;background:#234bba;display:grid;place-items:center;font-size:22px}
+.chat-tepa small{display:block;color:#54e3ac;font-size:11px}
+.xabarlar{height:235px;overflow-y:auto;padding:17px;display:flex;flex-direction:column;gap:13px}
+.xabar{padding:11px 14px;border-radius:13px;font-size:13px;max-width:88%;overflow-wrap:anywhere}
+.bot-xabar{background:#1b2d4c;align-self:flex-start;color:#e0eaff}
+.men-xabar{background:linear-gradient(120deg,#315cf1,#6448dd);align-self:flex-end}
+.chat-form{display:flex;gap:8px;padding:12px;border-top:1px solid #233657}
+.chat-form input{min-width:0;flex:1;background:#101f39;border:1px solid #344a70;border-radius:10px;padding:12px;color:white;outline:none}
+.chat-form input:focus{border-color:#6181ff}
+.chat-form button{padding:10px 15px}
+.yonalishlar{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.yonalish{text-align:center;padding:20px 8px;border:1px solid #203452;border-radius:14px;background:#0b1930;transition:.25s}
+.yonalish:hover{border-color:#657cff;transform:translateY(-4px)}
+.yonalish div{font-size:30px;margin-bottom:8px}
+.yonalish h3{font-size:13px}
+.yonalish p{font-size:11px;color:#9fb0ce;margin-top:5px}
+.test-karta{max-width:750px;margin:auto}
+.test-savol{font-size:18px;font-weight:600;margin-bottom:18px}
+.variantlar{display:grid;gap:10px}
+.variant{
+  padding:13px 16px;text-align:left;border-radius:10px;
+  border:1px solid #304465;background:#101e35;color:#eaf0ff;
+  transition:.2s;
+}
+.variant:hover{border-color:#6280ff;background:#17294a}
+.variant.togri{border-color:#24c78c;background:#104435}
+.variant.xato{border-color:#ff6578;background:#4b1d31}
+.test-past{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:20px;flex-wrap:wrap}
+#natija{color:#b8c6df;font-size:14px}
+footer{padding:25px 7%;border-top:1px solid #203452;display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap;color:#9eafcd;font-size:13px}
+footer strong{color:white}
+.oq-rejim{background:#f2f6ff;color:#14213a}
+.oq-rejim header,.oq-rejim .chat,.oq-rejim .karta,.oq-rejim .yonalish,.oq-rejim .variant{background:#fff;color:#14213a}
+.oq-rejim .bosh{background:radial-gradient(ellipse at 80% 40%,#dbe7ff,#f2f6ff 65%)}
+.oq-rejim .bosh p,.oq-rejim .karta p,.oq-rejim .demo-matn p,.oq-rejim .demo-matn ul,.oq-rejim .yonalish p{color:#43516c}
+.oq-rejim .chat-tepa,.oq-rejim .chat-form{border-color:#d7e0ef}
+.oq-rejim .chat-form input{background:#f4f7fc;color:#14213a}
+.oq-rejim .bot-xabar{background:#e8eef9;color:#14213a}
+.oq-rejim .variant{border-color:#d2dcee}
+.oq-rejim footer strong{color:#14213a}
+.oq-rejim .tun-btn{color:#14213a;background:#fff;border-color:#d1daec}
+@media(max-width:950px){
+  header{padding:0 4%}nav{gap:14px}.bosh{padding:50px 5%;gap:10px}
+  .imkoniyatlar{grid-template-columns:repeat(2,1fr)}
+  .bolim{padding:30px 5%}.demo{gap:20px}
+}
+@media(max-width:680px){
+  header{height:auto;min-height:68px;flex-wrap:wrap;padding:12px 5%;gap:12px}
+  nav{order:3;width:100%;justify-content:space-between;gap:8px;padding:6px 0}
+  nav a{font-size:12px}.logo{font-size:20px}.header-btns .tugma{padding:9px 12px}
+  .bosh{grid-template-columns:1fr;padding:40px 6% 25px;text-align:center}
+  h1{font-size:37px;letter-spacing:-1px}.bosh p{margin-left:auto;margin-right:auto}
+  .hero-rasm{min-height:240px}.robot{width:220px;height:220px;font-size:100px}
+  .aylana{width:235px;height:235px}
+  .imkoniyatlar{grid-template-columns:1fr}
+  .demo{grid-template-columns:1fr}
+  .yonalishlar{grid-template-columns:repeat(2,1fr)}
+  .bolim-sarlavha{font-size:22px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <a href="#bosh" class="logo"><span>✳</span> AI Future</a>
+  <nav>
+    <a href="#bosh">Bosh sahifa</a>
+    <a href="#imkoniyatlar">Imkoniyatlar</a>
+    <a href="#yordamchi">AI yordamchi</a>
+    <a href="#test">Test</a>
+  </nav>
+  <div class="header-btns">
+    <button class="tun-btn" id="rejim" aria-label="Rang rejimini almashtirish">☼</button>
+    <a href="#yordamchi" class="tugma">Boshlash</a>
+  </div>
+</header>
+
+<main>
+<section class="bosh" id="bosh">
+  <div>
+    <span class="yorliq">Kelajak texnologiyasi — bugundan!</span>
+    <h1>Sun’iy intellekt bilan <span class="rangli">yangi imkoniyatlar sari!</span></h1>
+    <p>Sun’iy intellekt — kompyuterlarning o‘rganishi, ma’lumotlarni tahlil qilishi va turli vazifalarni bajarishiga yordam beradigan zamonaviy texnologiya. Keling, uning imkoniyatlarini birgalikda o‘rganamiz!</p>
+    <a href="#imkoniyatlar" class="tugma">Batafsil o‘rganish →</a>
+  </div>
+  <div class="hero-rasm" aria-label="Sun’iy intellekt roboti">
+    <div class="aylana"></div>
+    <div class="robot">🤖</div>
+  </div>
+</section>
+
+<section class="bolim" id="imkoniyatlar">
+  <h2 class="bolim-sarlavha">Sun’iy intellektning asosiy imkoniyatlari</h2>
+  <div class="imkoniyatlar">
+    <article class="karta">
+      <div class="karta-ikon">🧠</div>
+      <h3>Ma’lumotlarni tahlil qilish</h3>
+      <p>AI katta hajmdagi ma’lumotlarni tez tahlil qilib, foydali xulosalar chiqarishga yordam beradi.</p>
+    </article>
+    <article class="karta">
+      <div class="karta-ikon binafsha">⚙️</div>
+      <h3>Avtomatlashtirish</h3>
+      <p>Takrorlanuvchi vazifalarni avtomatik bajarib, vaqt va mehnatni tejaydi.</p>
+    </article>
+    <article class="karta">
+      <div class="karta-ikon yashil">💡</div>
+      <h3>Yangi g‘oyalar</h3>
+      <p>Ta’lim, dasturlash va ijodiy ishlarda yangi yechimlarni topishga ko‘maklashadi.</p>
+    </article>
+    <article class="karta">
+      <div class="karta-ikon sariq">🌍</div>
+      <h3>Hayotni yaxshilash</h3>
+      <p>Tibbiyot, ta’lim va boshqa sohalardagi jarayonlarni takomillashtirishga xizmat qiladi.</p>
+    </article>
+  </div>
+</section>
+
+<section class="bolim demo" id="yordamchi">
+  <div class="demo-matn">
+    <span class="yorliq">Interaktiv loyiha</span>
+    <h2 class="bolim-sarlavha">AI yordamchisi bilan suhbat</h2>
+    <p>Savolingizni yozing va sun’iy intellekt haqidagi namunaviy javobni oling. Bu bo‘lim JavaScript yordamida ishlaydi.</p>
+    <ul>
+      <li>AI haqidagi savollarga javob</li>
+      <li>O‘zbek tilidagi muloqot</li>
+      <li>Foydali bilim va tavsiyalar</li>
+    </ul>
+  </div>
+  <div class="chat">
+    <div class="chat-tepa">
+      <div class="bot-belgi">🤖</div>
+      <div><strong>AI Yordamchi</strong><small>● Onlayn demo</small></div>
+    </div>
+    <div class="xabarlar" id="xabarlar" aria-live="polite">
+      <div class="xabar bot-xabar">Assalomu alaykum! Men AI Future yordamchisiman. Sun’iy intellekt haqida savol bering. Masalan: “AI nima?”</div>
+    </div>
+    <form class="chat-form" id="chat-form">
+      <input id="savol" type="text" placeholder="Savolingizni yozing..." autocomplete="off" required>
+      <button class="tugma" type="submit" aria-label="Xabar yuborish">➤</button>
+    </form>
+  </div>
+</section>
+
+<section class="bolim">
+  <h2 class="bolim-sarlavha">Sun’iy intellektning asosiy yo‘nalishlari</h2>
+  <div class="yonalishlar">
+    <article class="yonalish"><div>🧠</div><h3>Mashinali o‘rganish</h3><p>Machine Learning</p></article>
+    <article class="yonalish"><div>💬</div><h3>Tabiiy tilni qayta ishlash</h3><p>NLP</p></article>
+    <article class="yonalish"><div>👁️</div><h3>Kompyuter ko‘rishi</h3><p>Computer Vision</p></article>
+    <article class="yonalish"><div>🦾</div><h3>Robototexnika</h3><p>Robotics</p></article>
+    <article class="yonalish"><div>✨</div><h3>Generativ AI</h3><p>Matn va tasvir yaratish</p></article>
+  </div>
+</section>
+
+<section class="bolim" id="test">
+  <h2 class="bolim-sarlavha">🧠 Bilimingizni sinab ko‘ring!</h2>
+  <div class="karta test-karta">
+    <div id="test-hisob" style="color:#8ba9ff;margin-bottom:12px">1 / 5-savol</div>
+    <div class="test-savol" id="test-savol">Sun’iy intellekt nima?</div>
+    <div class="variantlar" id="variantlar"></div>
+    <div class="test-past">
+      <span id="natija" aria-live="polite">To‘g‘ri javobni tanlang.</span>
+      <button class="tugma" id="keyingi" disabled>Keyingi →</button>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div><strong>✳ AI Future</strong><br>Bugun o‘rgan, ertaga yarat!</div>
+  <div>Ta’lim • Texnologiya • Kelajak</div>
+  <div>© 2026 AI Future. O‘quv loyihasi.</div>
+</footer>
+
+<script>
+const rejimTugma = document.getElementById("rejim");
+
+rejimTugma.addEventListener("click", () => {
+  document.body.classList.toggle("oq-rejim");
+  rejimTugma.textContent = document.body.classList.contains("oq-rejim") ? "☾" : "☼";
+});
+
+const xabarlar = document.getElementById("xabarlar");
+const chatForm = document.getElementById("chat-form");
+const savolInput = document.getElementById("savol");
+
+function xabarQosh(matn, turi) {
+  const element = document.createElement("div");
+  element.className = "xabar " + turi;
+  element.textContent = matn;
+  xabarlar.appendChild(element);
+  xabarlar.scrollTop = xabarlar.scrollHeight;
+}
+
+function aiJavob(savol) {
+  const s = savol.toLowerCase();
+
+  if (s.includes("salom") || s.includes("assalomu")) {
+    return "Va alaykum assalom! Sizga qanday yordam bera olaman?";
+  }
+  if (s.includes("kim yarat") || s.includes("tarix")) {
+    return "Sun’iy intellekt bir kishi tomonidan yaratilmagan. Uning rivojlanishida ko‘plab olimlar qatnashgan. Alan Turing va John McCarthy bu sohaning muhim namoyandalaridir.";
+  }
+  if (s.includes("foyda") || s.includes("imkoniyat")) {
+    return "AI ma’lumotlarni tahlil qilish, o‘qishni shaxsiylashtirish, tarjima qilish, tibbiy tekshiruvlarga ko‘maklashish va takroriy ishlarni avtomatlashtirishda foydali.";
+  }
+  if (s.includes("xavf") || s.includes("zarar") || s.includes("xavfsiz")) {
+    return "AI noto‘g‘ri ma’lumot berishi yoki shaxsiy ma’lumotlarga xavf tug‘dirishi mumkin. Natijalarni tekshirish, maxfiy ma’lumotlarni kiritmaslik va AI dan mas’uliyat bilan foydalanish muhim.";
+  }
+  if (s.includes("maktab") || s.includes("ta'lim") || s.includes("o‘qish") || s.includes("oqish")) {
+    return "AI o‘quvchilarga mavzularni tushuntirish, til o‘rganish, mashqlar tuzish va dasturlashni o‘rganishda yordam beradi. Lekin vazifani mustaqil tushunish va manbalarni tekshirish kerak.";
+  }
+  if (s.includes("robot")) {
+    return "Robototexnika robotlarni loyihalash va boshqarish bilan shug‘ullanadi. AI robotlarga muhitni anglash va ayrim vazifalarni mustaqil bajarishda yordam berishi mumkin.";
+  }
+  if (s.includes("dastur") || s.includes("javascript") || s.includes("html") || s.includes("kod")) {
+    return "HTML sahifa tuzilishini, CSS uning ko‘rinishini, JavaScript esa interaktivligini yaratadi. AI esa kod yozish va xatolarni tushunishda yordamchi bo‘lishi mumkin.";
+  }
+  if (s.includes("nima") || s.includes("sun'iy") || s.includes("intellekt") || s.includes("ai")) {
+    return "Sun’iy intellekt — kompyuter tizimlarining ma’lumotlardan o‘rganish, tilni qayta ishlash, tasvirlarni tanish va muammolarni hal qilish kabi vazifalarni bajarishiga imkon beruvchi texnologiyalar sohasi.";
+  }
+  return "Bu demo yordamchi oldindan tayyorlangan javoblar bilan ishlaydi. AI, robototexnika, dasturlash, ta’lim yoki sun’iy intellekt xavfsizligi haqida savol berib ko‘ring.";
+}
+
+chatForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const savol = savolInput.value.trim();
+  if (!savol) return;
+
+  xabarQosh(savol, "men-xabar");
+  savolInput.value = "";
+
+  setTimeout(() => {
+    xabarQosh(aiJavob(savol), "bot-xabar");
+  }, 300);
+});
+
+const testlar = [
+  {
+    savol: "Sun’iy intellekt nima?",
+    variantlar: ["Faqat kompyuter o‘yini", "Aqlli vazifalarni bajaruvchi texnologiyalar sohasi", "Faqat internet tarmog‘i", "Oddiy kalkulyator"],
+    javob: 1
+  },
+  {
+    savol: "HTML nima uchun ishlatiladi?",
+    variantlar: ["Sayt tuzilishini yaratish", "Kompyuterni ta’mirlash", "Internet tezligini oshirish", "Rasm chizishning o‘zi"],
+    javob: 0
+  },
+  {
+    savol: "CSS ning asosiy vazifasi nima?",
+    variantlar: ["Ma’lumot saqlash", "Sayt dizayni va ko‘rinishini belgilash", "Serverni yoqish", "Matnni tarjima qilish"],
+    javob: 1
+  },
+  {
+    savol: "Mashinali o‘rganish nimaga asoslanadi?",
+    variantlar: ["Faqat tasodifga", "Faqat elektr quvvatiga", "Ma’lumotlardan qonuniyatlarni o‘rganishga", "Faqat rasmlarga"],
+    javob: 2
+  },
+  {
+    savol: "AI dan xavfsiz foydalanish uchun nima qilish kerak?",
+    variantlar: ["Barcha parollarni yuborish", "Har bir javobni tekshirmasdan qabul qilish", "Shaxsiy ma’lumotlarni oshkor qilish", "Javoblarni tekshirish va maxfiylikni saqlash"],
+    javob: 3
+  }
+];
+
+let joriySavol = 0;
+let ball = 0;
+let javobBerildi = false;
+
+const testSavol = document.getElementById("test-savol");
+const variantlar = document.getElementById("variantlar");
+const testHisob = document.getElementById("test-hisob");
+const natija = document.getElementById("natija");
+const keyingi = document.getElementById("keyingi");
+
+function testniChiqar() {
+  javobBerildi = false;
+  const t = testlar[joriySavol];
+  testHisob.textContent = `${joriySavol + 1} / ${testlar.length}-savol`;
+  testSavol.textContent = t.savol;
+  variantlar.replaceChildren();
+  natija.textContent = "To‘g‘ri javobni tanlang.";
+  keyingi.disabled = true;
+  keyingi.textContent = joriySavol === testlar.length - 1 ? "Natijani ko‘rish" : "Keyingi →";
+
+  t.variantlar.forEach((matn, indeks) => {
+    const tugma = document.createElement("button");
+    tugma.className = "variant";
+    tugma.textContent = matn;
+    tugma.addEventListener("click", () => javobniTekshir(indeks));
+    variantlar.appendChild(tugma);
+  });
+}
+
+function javobniTekshir(indeks) {
+  if (javobBerildi) return;
+  javobBerildi = true;
+
+  const togriJavob = testlar[joriySavol].javob;
+  [...variantlar.children].forEach((tugma, i) => {
+    tugma.disabled = true;
+    if (i === togriJavob) tugma.classList.add("togri");
+    if (i === indeks && i !== togriJavob) tugma.classList.add("xato");
+  });
+
+  if (indeks === togriJavob) {
+    ball++;
+    natija.textContent = "✅ To‘g‘ri javob! Barakalla!";
+  } else {
+    natija.textContent = "❌ Noto‘g‘ri. Yashil rangdagi javob to‘g‘ri.";
+  }
+  keyingi.disabled = false;
+}
+
+keyingi.addEventListener("click", () => {
+  if (!javobBerildi) return;
+
+  if (joriySavol < testlar.length - 1) {
+    joriySavol++;
+    testniChiqar();
+  } else {
+    testHisob.textContent = "Test yakunlandi";
+    testSavol.textContent = `Siz ${testlar.length} ta savoldan ${ball} tasiga to‘g‘ri javob berdingiz!`;
+    variantlar.replaceChildren();
+
+    const izoh = document.createElement("p");
+    izoh.textContent = ball === 5
+      ? "Ajoyib! Siz AI bilimlarini juda yaxshi bilasiz."
+      : ball >= 3
+      ? "Yaxshi natija! Yana o‘rganishda davom eting."
+      : "Mashq qilishda davom eting — bilimlaringiz yanada oshadi.";
+    variantlar.appendChild(izoh);
+
+    keyingi.disabled = false;
+    keyingi.textContent = "Qayta boshlash";
+    keyingi.onclick = () => {
+      joriySavol = 0;
+      ball = 0;
+      keyingi.onclick = null;
+      testniChiqar();
+    };
+  }
+});
+
+testniChiqar();
+</script>
+</body>
+</html>
